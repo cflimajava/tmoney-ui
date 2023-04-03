@@ -1,0 +1,25 @@
+<div>
+    <div [ngClass]="{'alert alert-primary': this.successMsg, 'alert alert-danger': this.errorMsg}" role="alert"
+        [hidden]="!this.successMsg && !this.errorMsg">
+        {{this.message}}
+    </div>
+    <h3 class="mb-3">Adicionar despesa</h3>
+    <form #extraExpense="ngForm" class="form-inline" (ngSubmit)="submitExtra(extraExpense); extraExpense.reset()">
+        <div class="ng-fullcalendar">
+            <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+        <div class="input-group mb-3 mt-3">
+            <select class="form-select" name="type" #type="ngModel" ngModel required [disabled]="this.dateSelected == undefined">
+                <option value="" selected>Selecione o tipo de despesa</option>
+                <option *ngFor="let item of typesExtra" [value]=item.value>{{item.description}}</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="number" class="form-control" name="amount" #amount="ngModel" ngModel [disabled]="type == undefined">
+        </div>
+        <div class="form-group mb-3 mt-2 d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-primary" [disabled]="extraExpense.invalid">ADD</button>
+        </div>
+    </form>
+</div>

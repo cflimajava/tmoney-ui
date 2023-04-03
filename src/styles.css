@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: lightsteelblue;
+}
+main {
+    position: relative;
+    top: 58px;
+    background-color: azure;
+    height: 2500px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #212529;
+    width: 100%;
+    z-index: 1031;
+    text-align: center !important;
+}
+
+footer p{
+    color: aliceblue;
+}
+
+
+@import "bootstrap/dist/css/bootstrap.css";
