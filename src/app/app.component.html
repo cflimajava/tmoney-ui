@@ -1,5 +1,20 @@
-<div>
-  <h1>{{appName}}</h1>
-  <h2>{{subTitle}}</h2>
-  <h3>Saber valore de:</h3>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid text-center">
+      <h1 class="navbar-brand">Tracking Money App</h1>
+      <ul class="nav justify-content-center">
+          <li class="nav-item">
+              <a class="nav-link" aria-current="page" routerLink="/despesas">Despesas</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/receitas">Receitas</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/relatorios">Relatorios</a>
+          </li>
+      </ul>
+  </div>
+</nav>
+<div class="container-fluid body-starter">
+  <router-outlet></router-outlet>
 </div>
+
