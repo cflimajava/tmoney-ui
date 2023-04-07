@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  appName = 'Tracking Money App';
-  subTitle: string = "Target";
-  targets: Array<String> = ["in", "out", "saved"];
 
 }

@@ -3,15 +3,28 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, NgForm } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { InsertComponent } from 'src/app-components/insert/insert.component';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from '../app-components/header/header.component';
+import { DespesaComponent } from './app-components/despesa/despesa.component';
+import { ReceitaComponent } from './app-components/receita/receita.component';
+import { RelatorioComponent } from './app-components/relatorio/relatorio.component';
+
 
 @NgModule({
-  declarations: [InsertComponent, HeaderComponent],
-  imports: [BrowserModule, FormsModule, FullCalendarModule, HttpClientModule],
+  declarations: [AppComponent, DespesaComponent, ReceitaComponent, RelatorioComponent],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    FullCalendarModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:'despesas', component: DespesaComponent},
+      {path:'receitas', component: ReceitaComponent},
+      {path:'relatorios', component: RelatorioComponent},
+      {path:'', redirectTo: 'despesas', pathMatch: 'full'}
+    ])],
   providers: [],
-  bootstrap: [InsertComponent, HeaderComponent]
+  bootstrap: [AppComponent, DespesaComponent, ReceitaComponent, RelatorioComponent]
 })
 export class AppModule { }

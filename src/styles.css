@@ -1,13 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-color: lightsteelblue;
-}
-main {
-    position: relative;
-    top: 58px;
-    background-color: azure;
-    height: 2500px;
-}
 
 footer {
     position: fixed;
@@ -21,6 +12,23 @@ footer {
 footer p{
     color: aliceblue;
 }
+
+.ng-fullcalendar {
+    margin-top: 2%;
+    width: 75% !important;
+    margin-left: 12.5%;
+ }
+
+ .sideMessage{
+    position: fixed;
+    opacity: 0.9;
+    right: 0;
+    z-index: 1500;
+ }
+
+ .title{
+    margin-left: 12.5%;
+ }
 
 
 @import "bootstrap/dist/css/bootstrap.css";

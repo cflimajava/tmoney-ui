@@ -3,24 +3,23 @@ import { CalendarOptions} from '@fullcalendar/core'; // useful for typechecking
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { ExpenseService } from 'src/app/services/expense.service';
-import { Expense } from 'src/models/expense';
+import { Expense } from 'src/app/models/expense';
 
 @Component({
-  selector: 'pm-insert',
-  templateUrl: './insert.component.html',
-  styleUrls: ['./insert.component.css']
+  templateUrl: './despesa.component.html',
+  styleUrls: ['./despesa.component.css']
 })
-export class InsertComponent {
+export class DespesaComponent {
 
   constructor(private expenseService: ExpenseService ){
   }
 
   title: string = 'Insert the extra expense';
 
-  dateSelected?: Date = undefined; 
+  dateSelected?: Date = undefined;
 
   expenseObj: Expense | undefined;
-  message?: string | undefined;  
+  message?: string | undefined;
   errorMsg?: boolean = !this.successMsg && this.message != undefined;
   successMsg?: boolean = !this.errorMsg && this.message != undefined;;
 
@@ -64,17 +63,17 @@ export class InsertComponent {
     { "value": 1009, "description": "diversos" }
   ]
 
-  submitExtra(_expense: any) {    
+  submitExtra(_expense: any) {
 
 
     this.expenseObj = new Expense(
-      undefined, 
-      this.dateSelected, 
+      undefined,
+      this.dateSelected,
       _expense.form.value.amount,
       _expense.form.value.type,
       this.getTypeExtraDescription(_expense.form.value.type));
 
-    this.expenseService.insertExpense(this.expenseObj).subscribe({
+    this.expenseService.sendExpense(this.expenseObj).subscribe({
       next: expense => {
         this.expenseObj = expense;
         this.dateSelected = undefined;
@@ -82,7 +81,7 @@ export class InsertComponent {
       },
       error: err => this.setErrorMsg(err)
     })
-        
+
   }
 
   handleDateClick(arg: any) {
@@ -93,7 +92,7 @@ export class InsertComponent {
     let desc = ""
     this.typesExtra.forEach((item) => {
       if (item.value == id) {
-        desc = item.description;        
+        desc = item.description;
       }
     });
     return desc;
@@ -108,5 +107,7 @@ export class InsertComponent {
     this.message = msg;
     this.errorMsg = true;
   }
+
+
 
 }
