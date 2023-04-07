@@ -6,7 +6,7 @@ import { catchError, Observable, tap, throwError } from "rxjs";
 @Injectable({providedIn:'root'})
 export class ExpenseService{
 
-    private baseUrl = "http://localhost:8888"
+    private baseUrl = "http://localhost:8080"
 
     private expenseURL: string = this.baseUrl+"/expense/add";
     private entryURL: string = this.baseUrl+"/entry/add";
