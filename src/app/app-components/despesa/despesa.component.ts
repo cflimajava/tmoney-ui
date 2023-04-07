@@ -73,7 +73,7 @@ export class DespesaComponent {
       _expense.form.value.type,
       this.getTypeExtraDescription(_expense.form.value.type));
 
-    this.expenseService.insertExpense(this.expenseObj).subscribe({
+    this.expenseService.sendExpense(this.expenseObj).subscribe({
       next: expense => {
         this.expenseObj = expense;
         this.dateSelected = undefined;

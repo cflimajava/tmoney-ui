@@ -8,10 +8,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DespesaComponent } from './app-components/despesa/despesa.component';
 import { ReceitaComponent } from './app-components/receita/receita.component';
+import { RelatorioComponent } from './app-components/relatorio/relatorio.component';
 
 
 @NgModule({
-  declarations: [AppComponent, DespesaComponent, ReceitaComponent],
+  declarations: [AppComponent, DespesaComponent, ReceitaComponent, RelatorioComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -20,9 +21,10 @@ import { ReceitaComponent } from './app-components/receita/receita.component';
     RouterModule.forRoot([
       {path:'despesas', component: DespesaComponent},
       {path:'receitas', component: ReceitaComponent},
+      {path:'relatorios', component: RelatorioComponent},
       {path:'', redirectTo: 'despesas', pathMatch: 'full'}
     ])],
   providers: [],
-  bootstrap: [AppComponent, DespesaComponent, ReceitaComponent]
+  bootstrap: [AppComponent, DespesaComponent, ReceitaComponent, RelatorioComponent]
 })
 export class AppModule { }

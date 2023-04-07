@@ -6,17 +6,28 @@ import { catchError, Observable, tap, throwError } from "rxjs";
 @Injectable({providedIn:'root'})
 export class ExpenseService{
 
-    private insertUrl: string = "http://localhost:8888/expense/add";
+    private baseUrl = "http://localhost:8888"
+
+    private expenseURL: string = this.baseUrl+"/expense/add";
+    private entryURL: string = this.baseUrl+"/entry/add";
 
     constructor(private http: HttpClient){}
 
-    insertExpense(expense: Expense): Observable<Expense>{
+    sendExpense(expense: Expense): Observable<Expense>{
 
-        return  this.http.post<Expense>(this.insertUrl,expense).pipe(
+        return  this.http.post<Expense>(this.expenseURL,expense).pipe(
             tap(data => console.log(data)),
             catchError(this.hanldeError));
 
     }
+
+    sendEntry(receita: Expense): Observable<Expense>{
+        return  this.http.post<Expense>(this.entryURL,receita).pipe(
+            tap(data => console.log(data)),
+            catchError(this.hanldeError));
+
+    }
+
 
     private hanldeError(err: HttpErrorResponse){
 

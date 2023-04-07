@@ -1,13 +1,13 @@
 <div class="container">
-    <div [ngClass]="{'alert alert-primary': this.successMsg, 'alert alert-danger': this.errorMsg}" role="alert"
+    <div [ngClass]="{'alert alert-primary': this.successMsg, 'alert alert-danger': this.errorMsg, 'sideMessage': true}" role="alert"
         [hidden]="!this.successMsg && !this.errorMsg">
         {{this.message}}
     </div>
-    <div class="text-center">
-        <h3 class="mb-3">Adicionar despesas</h3>
+    <div>
+        <h3 class="mb-3 title">Adicionar despesas</h3>
         <form #extraExpense="ngForm" class="form-inline" (ngSubmit)="submitExtra(extraExpense); extraExpense.reset()">
             <div class="ng-fullcalendar">
-                <full-calendar [options]="calendarOptions"></full-calendar>
+                <full-calendar [options]="calendarOptions" class="despesa_bg"></full-calendar>
             </div>
             <div class="input-group mb-3 mt-3">
                 <select class="form-select" name="type" #type="ngModel" ngModel required [disabled]="this.dateSelected == undefined">
